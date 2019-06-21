@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Looking at Shapes Project - Omar Sinan</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="p5/p5.min.js"></script>
+        <script src="p5/addons/p5.dom.min.js"></script>
+        <script src="assets/lsystem.js"></script>
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
+    <body>
+        <div class="cont"></div>
+        <div class="sidebar">
+            <h1>L-Systems</h1>
+            <h3>Settings</h3>
+            <label>Axiom: </label>
+            <br />
+            <input id="axiom" type="text" value="X" />
+            <br />
+            <br />
+            <label>Rules: </label>
+            <br />
+            <div class="rules">
+                <div class="rule">
+                    <label class="ruleNum">Rule 1: </label>
+                    <br />
+                    <input class="from" type="text" value="F"/>
+                    <input class="to" type="text" value="FF"/>
+                    <button class="delete">X</button>
+                </div>
+                <div class="rule">
+                    <label class="ruleNum">Rule 2: </label>
+                    <br />
+                    <input class="from" type="text" value="X"/>
+                    <input class="to" type="text" value="F-[[X]+X]+F[+FX]-X"/>
+                    <button class="delete">X</button>
+                </div>
+            </div>
+            <button id="addRule">Add Rule</button>
+            <br />
+            <label>Angle: </label>
+            <br />
+            <input id="angle" type="text" value="22.5" />
+            <br />
+            <br />
+            <label>Line Width: </label>
+            <br />
+            <input id="lineWidth" type="text" value="170" />
+            <br />
+            <br />
+            <label>Line Multiplier: </label>
+            <br />
+            <input id="lenMult" type="text" value="0.5" />
+            <br />
+            <div id="generate"></div>
+        </div>
+    </body>
+</html>

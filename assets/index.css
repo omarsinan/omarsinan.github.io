@@ -1,0 +1,196 @@
+:root {
+    --header-height: 75px;
+}
+@font-face {
+    font-family: 'Raleway100';
+    src: url('fonts/Raleway-Thin.ttf');
+}
+@font-face {
+    font-family: 'Raleway400';
+    src: url('fonts/Raleway-Regular.ttf');
+}
+@font-face {
+    font-family: 'Raleway600';
+    src: url('fonts/Raleway-SemiBold.ttf');
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Raleway400', sans-serif;
+}
+
+/* START header styles */
+.fakeHeader {
+    position: relative;
+    width: 100%;
+    height: var(--header-height);
+}
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: var(--header-height);
+    background-color: #fff;
+    box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.7);
+    justify-content: space-between;
+    z-index: 10;
+}
+header .brand {
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 22pt;
+    font-family: 'Raleway600', sans-serif;
+    line-height: var(--header-height);
+}
+header .buttons {
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+}
+header .button.active {
+    background-color: rgba(178, 223, 219, 0.5);
+}
+/* END header styles */
+
+/* START main styles */
+main {
+    width: 100%;
+    height: 100%;
+}
+/* END main styles */
+
+/* START jumbotron styles */
+.jumbotron {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    background-color: rgb(178, 223, 219);
+}
+.jumbotron .typed-parent {
+    text-align: center;
+    font-size: 42pt;
+    padding-bottom: 35px;
+}
+.jumbotron .typed {
+    font-family: 'Raleway100', sans-serif;
+}
+.jumbotron .typed-cursor {
+    font-family: 'Raleway100', sans-serif;
+}
+.jumbotron .buttons {
+    display: inline-block;
+    text-align: center;
+}
+.jumbotron .button:hover {
+    background-color: #004D40;
+    color: #fff;
+}
+.jumbotron .button {
+    border: 2px solid #424242;
+}
+.jumbotron .social {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #004d40;
+}
+/* END jumbotron styles */
+
+/* START projects styles */
+.projects {
+    width: 100%;
+    padding-bottom: 150px;
+}
+.projects .title {
+    margin: 100px 0 50px 0;
+    text-align: center;
+    font-family: 'Raleway600', sans-serif;
+}
+.projects .grid {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(100% - 200px);
+}
+.projects .item {
+    min-width: 220px;
+    min-height: 220px;
+    max-width: 220px;
+    max-height: 220px;
+    background-color: #fff;
+    cursor: pointer;
+    border: 3px solid #ccc;
+}
+.projects .item:hover {
+    border: 3px solid #bbb;
+}
+.projects .itemLink {
+    margin: 10px;
+}
+.projects img {
+    width: 200px;
+    height: 200px;
+    margin: 10px 0 0 10px;
+}
+/* END projects styles */
+
+/* START footer styles */
+footer .social {
+    text-align: center;
+    font-size: 1.5em;
+    color: #004d40;
+}
+/* END footer styles */
+
+/* START general styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.button {
+    display: inline-block;
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+/* END general styles */
+
+/* START responsive media queries */
+@media only screen and (max-width: 700px) {
+    header .brand {
+        font-size: 18pt;
+    }
+    header .button {
+        width: 75px;
+        margin: 10px;
+    }
+    .jumbotron .button {
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 550px) {
+    header .brand {
+        font-size: 22pt;
+    }
+    header .buttons {
+        display: none;
+    }
+    .jumbotron .typed, .jumbotron .typed-cursor {
+        font-size: 28pt;
+    }
+}
+/* END responsive media queries */

@@ -1,0 +1,75 @@
+html, body{
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Raleway';
+  font-weight: 400 !important;
+}
+
+#parent {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  height: calc(100vh - 40px);
+}
+
+#container {
+  display: inline-block;
+  padding: 40px 40px 0 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #eee;
+  margin: 20px 0 0 0;
+}
+
+#container #title {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+#container form {
+  margin: 0;
+  text-align: center;
+}
+
+#container #button_holder {
+  text-align: center;
+}
+
+#container button {
+  margin: 20px auto 0 auto;
+}
+
+#container #result {
+  text-align: center;
+  margin: 15px 0 0 0;
+}
+
+#credit {
+  display:inline-block;
+  width: 100%;
+  font-size: 9pt;
+  margin-top: 20px;
+}
+
+#credit p {
+  width: 100%;
+  text-align: center;
+}
+
+#credit #heart {
+  color: red;
+}
+
+/* EXTRA HELPER STYLES */
+a {
+  text-decoration: none;
+  color: #1377d5;
+}
+
+.bold {
+  font-weight: bold;
+}

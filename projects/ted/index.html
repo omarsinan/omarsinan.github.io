@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Random TedTalks Video</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abel|Anton|Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        body, html {
+            margin: 0;
+            background-color: #E3F2FD;
+        }
+        h1 {
+            text-align: center;
+            font-family: Abel;
+            font-size: 40px;
+            margin-bottom: 0;
+        }
+        .ted {
+            color: red;
+            font-family: Anton;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
+        p {
+            text-align: center;
+            font-family: Karla;
+        }
+        a {
+           color: red;
+        }
+        #lead {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        #credit > span {
+            color :red;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>Random <span class="ted">TED</span> Talks Video</h1>
+    <p id="lead">Click <a href="javascript:void(0)" id="newVid">here</a> to show another video or visit <a href="https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug" target="_blank"><span class="ted">TED</span> Talks</a> channel</p>
+    <iframe width="853" height="480" src="" frameBorder="0"></iframe>
+    <p>I am in no way affiliated with, nor a representative of <a href="https://www.ted.com" target="_blank"><span class="ted">TED</a></span></p>
+    <p id="credit">Made with <span class="glyphicon glyphicon-heart"></span> by <a href="https://www.twitter.com/OmarHashimoto" target="_blank">Omar O.</a></p>
+
+    <script>
+      var video_urls = [];
+
+      function displayRandomVideo() {
+        var randomVideoId = video_urls[Math.floor(Math.random()*video_urls.length)];
+        $("iframe").attr("src", "https://www.youtube.com/embed/" + randomVideoId + "?autoplay=1");
+      }
+
+      $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyC_ThLq6f2ZTzRyGH_8gmtVE72Cz9Tk2Ys&channelId=UCAuUUnT6oDeKwE6v1NGQxug&order=date&part=snippet,id&maxResults=40", function(data, status){
+        for (var i = 0; i < data.items.length; i++) {
+          let id = data.items[i].id.videoId;
+          if (id != undefined) {
+            video_urls.push(id);
+          }
+        }
+        displayRandomVideo();
+      });
+
+      $("#newVid").click(function() {
+         displayRandomVideo();
+      });
+
+    </script>
+  </body>
+</html>

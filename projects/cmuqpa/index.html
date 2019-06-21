@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>CMU QPA Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Carnegie Mellon QPA Calculator - Calculate your overall QPA using this tool by selecting all your courses and their respective grades." />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+        <script src="https://unpkg.com/vue@2.5.17/dist/vue.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <style>
+            .course {
+                margin-bottom: 12px;
+                display: flex;
+                justify-content: center;
+            }
+            #qpa {
+                margin: 0 0 12px 0;
+            }
+            #heart {
+                font-family: 'Raleway';
+                color: red;
+            }
+            .main {
+                padding: 30px 30px 10px 30px;
+                box-shadow: 0 0 15px #ddd;
+                display: block;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .credits {
+                margin-top: 30px;
+            }
+            @media only screen and (max-width: 768px) {
+                .main {
+                    box-shadow: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <section class="section">
+                <div class="container">
+                    <div class="column is-6-desktop is-offset-3-desktop is-4-widescreen is-offset-4-widescreen">
+                        <div class="main">
+                            <h1 class="title">CMU QPA Calculator</h1>
+                            <h1 id="qpa" class="subtitle">Your Overall QPA is <strong>{{ calculated_qpa }}</strong></h1>
+                            <div class="course" v-for="course in courses">
+                                <course @change="update" :id="course.id"></course>
+                            </div>
+                            <button id="addCourse" class="button is-link" @click="addCourse">Add course</button>
+                            <p class="credits">Made with <span id="heart">&#9829;</span> by <a href="https://qatar.cmu.edu/~osinan">Omar Sinan</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+        var id = 1
+        Vue.component('course', {
+            props: {
+                id: Number
+            },
+            template: `
+            <div :id="id" class="field is-grouped">
+                <div class="control">
+                    <input class="input" type="number" v-on:input="calculate" min="0" inputmode="numeric" pattern="[0-9]*" placeholder="Units">
+                </div>
+                <div class="control">
+                    <div class="select">
+                        <select v-on:input="calculate">
+                            <option value="4">A</option>
+                            <option value="3">B</option>
+                            <option value="2">C</option>
+                            <option value="1">D</option>
+                            <option value="0">R</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            `,
+            methods: {
+                calculate() {
+                    this.$emit('change', this.id)
+                }
+            }
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                id: 1,
+                courses: [{'id': this.id, 'units': 0, 'grade': 4}],
+                units: 0,
+                qPoints: 0,
+            },
+            computed: {
+                calculated_qpa() {
+                    return (this.qPoints / this.units) ? (this.qPoints / this.units).toFixed(2) : (0).toFixed(2)
+                }
+            },
+            methods: {
+                addCourse() {
+                    this.id += 1
+                    this.courses.push({'id': this.id, 'units': 0, 'grade': 4})
+                },
+                update: function(id) {
+                    if (event.target.type == 'number')
+                        this.courses[this.courses.findIndex(p => p.id == id)].units = parseInt(event.target.value)
+                    if (event.target.type == 'select-one')
+                        this.courses[this.courses.findIndex(p => p.id == id)].grade = parseInt(event.target.value)
+
+                    this.units = this.courses.reduce((prev,next) => prev + next.units, 0)
+                    this.qPoints = this.courses.reduce((prev,next) => prev + (next.units * next.grade), 0)
+                }
+            }
+        })
+        </script>
+    </body>
+</html>
