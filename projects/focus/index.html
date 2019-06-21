@@ -126,13 +126,12 @@
                 display: block;
                 width: 200px;
             }
-            .project .showcaseImage {
-                display: inline;
-                margin-bottom: 20px;
-            }
             .project .information {
-                color: #007bff;
+                color: #555;
                 text-align: center;
+            }
+            .project .information a {
+                color: #007bff;
             }
             /* END project styles */
 
@@ -208,9 +207,15 @@
                 <h1 id="projectTitle" class="title">Idea</h1>
                 <p class="lead">Focus is an app that helps you avoid your phone while studying. Once you start your studying session, you can't lift your phone up until the timer ends.</p>
                 <div class="showcase">
-                    <img class="showcaseImage" src="assets/images/focus-1.webp" />
-                    <img class="showcaseImage" src="assets/images/focus-2.webp" />
-                    <img class="showcaseImage" src="assets/images/focus-3.webp" />
+                    <object class="showcaseImage" data="assets/images/focus-1.webp" type="image/png">
+                        <img src="assets/images/focus-1.jpg" alt="Focus demo image 1">
+                    </object>
+                    <object class="showcaseImage"  data="assets/images/focus-2.webp" type="image/png">
+                        <img src="assets/images/focus-2.jpg" alt="Focus demo image 2">
+                    </object>
+                    <object class="showcaseImage"  data="assets/images/focus-3.webp" type="image/png">
+                        <img src="assets/images/focus-3.jpg" alt="Focus demo image 3">
+                    </object>
                 </div>
                 <p class="information">More information can be found on this <a href="https://twitter.com/OmarHashimoto/status/943506183570317312">Twitter thread</a>.</p>
             </div>
