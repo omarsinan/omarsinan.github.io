@@ -112,10 +112,13 @@ main {
 .project .showcaseImage {
     display: block;
     width: 200px;
-    margin-bottom: 20px;
 }
 .project .showcaseImage:not(:last-child) {
     margin-right: 10px;
+}
+#policy {
+    width: 100%;
+    height: 100px;
 }
 .privacyPolicy {
     width: calc(100% - 100px);
