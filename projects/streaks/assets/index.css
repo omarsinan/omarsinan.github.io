@@ -108,6 +108,7 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 50px;
+    flex-direction: row;
 }
 .project .showcaseImage {
     display: block;
@@ -170,6 +171,13 @@ a {
     }
     header .buttons {
         display: none;
+    }
+    .project .showcase {
+        flex-direction: column;
+    }
+    .project .showcaseImage:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 }
 /* END responsive media queries */
