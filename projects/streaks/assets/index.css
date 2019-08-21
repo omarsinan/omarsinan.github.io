@@ -123,8 +123,10 @@ main {
 }
 .privacyPolicy {
     width: calc(100% - 100px);
-    line-height: 22pt;
-    margin: 30px;
+    max-width: 800px;
+    text-align: center;
+    line-height: 32pt;
+    margin: 30px auto;
 }
 /* END project styles */
 
