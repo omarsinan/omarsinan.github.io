@@ -5,14 +5,15 @@
     <link href="https://fonts.googleapis.com/css?family=Abel|Anton|Karla" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123433854-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123433854-5"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'UA-123433854-1');
+      gtag('config', 'UA-123433854-5');
     </script>
+
     <style>
         body, html {
             margin: 0;
@@ -37,7 +38,7 @@
             font-family: Karla;
         }
         a {
-           color: red;
+          color: red;
         }
         #lead {
             margin-top: 0;
@@ -64,7 +65,7 @@
         $("iframe").attr("src", "https://www.youtube.com/embed/" + randomVideoId + "?autoplay=1");
       }
 
-      $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyC_ThLq6f2ZTzRyGH_8gmtVE72Cz9Tk2Ys&channelId=UCAuUUnT6oDeKwE6v1NGQxug&order=date&part=snippet,id&maxResults=40", function(data, status){
+      $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyD7mpj0S-v29vEdpI0-9yhp6tEAzcn6-qA&channelId=UCAuUUnT6oDeKwE6v1NGQxug&order=date&part=snippet,id&maxResults=40", function(data, status){
         for (var i = 0; i < data.items.length; i++) {
           let id = data.items[i].id.videoId;
           if (id != undefined) {
@@ -75,7 +76,7 @@
       });
 
       $("#newVid").click(function() {
-         displayRandomVideo();
+        displayRandomVideo();
       });
 
     </script>
