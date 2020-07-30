@@ -65,7 +65,7 @@
         $("iframe").attr("src", "https://www.youtube.com/embed/" + randomVideoId + "?autoplay=1");
       }
 
-      $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyD7mpj0S-v29vEdpI0-9yhp6tEAzcn6-qA&channelId=UCAuUUnT6oDeKwE6v1NGQxug&order=date&part=snippet,id&maxResults=40", function(data, status){
+      $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAqFJp5KNA1lpcYbBCf5huLeKehcuS79YM&channelId=UCAuUUnT6oDeKwE6v1NGQxug&order=date&part=snippet,id&maxResults=10", function(data, status){
         for (var i = 0; i < data.items.length; i++) {
           let id = data.items[i].id.videoId;
           if (id != undefined) {
