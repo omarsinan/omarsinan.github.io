@@ -28,6 +28,4 @@
 //     })
 // }
 
-window.onload = function() {
-    window.location.replace("https://omarsinan.com");
-}
+window.location.replace("https://omarsinan.com");
